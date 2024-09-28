@@ -6,7 +6,7 @@ def main():
     #   sends file to "get_word_count" function
     word_count = get_word_count(text)
     #   prints text
-    print(text, word_count)
+    print(f"{word_count} words found in the document")
 
 def get_book_text(path):
     #   uses the "with" command to open a file in a directory
@@ -15,13 +15,14 @@ def get_book_text(path):
         return f.read()
 
 def get_word_count(path):
-    #   add the 'word_count' tally
+    #   add the "word_count" tally
     word_count = 0
     #   splits each word individually
     words = path.split()
-    #   loop that add 1 to 'word_count' for each word
+    #   loop that add 1 to "word_count" for each word
     for i in words:
         word_count += 1
+    #   returns the word count to "main" function
     return word_count
 
 main()
