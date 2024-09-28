@@ -40,6 +40,7 @@ def get_character_count(text):
         #   creates an entry for that character if it doesn't exist already
         else:
             character_dict[l] = 1
+    #   returns the character count to "main" function
     return character_dict
 
 
