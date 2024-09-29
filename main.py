@@ -8,7 +8,8 @@ def main():
     #   sends file to "get_character_count" function
     character_count = get_character_count(text)
     #   prints text
-    print(character_count)
+    sorted_char_dict = sort_char_dict(character_count)
+    print(f"{word_count} words found in the document")
 
 def get_book_text(path):
     #   uses the "with" command to open a file in a directory
@@ -28,20 +29,27 @@ def get_word_count(text):
     return word_count
 
 def get_character_count(text):
-    #   transforms all text to lowercase
-    lowered_text = text.lower()
     #   defines the "character_dict" dictionary
     character_dict = {}
-    #   separates each letter
-    for l in lowered_text:
+    #   separates each character
+    for char in text:
+        #   sets all characters to lower case
+        lowered = char.lower()
         #   adds a 1 for each letter that is already present in the dictionary
-        if l in character_dict:
-            character_dict[l] += 1
+        if lowered in character_dict:
+            character_dict[lowered] += 1
         #   creates an entry for that character if it doesn't exist already
         else:
-            character_dict[l] = 1
+            character_dict[lowered] = 1
     #   returns the character count to "main" function
     return character_dict
+
+def sort_char_dict(list):
+    sorted_character_dict = []
+    for char in list:
+        if char.isalpha() == True:
+            sorted_character_dict.append(char)
+    print(sorted_character_dict)
 
 
 main()
